@@ -14,15 +14,21 @@ pip install -r requirements/metrics.txt
 cd ..
 ```
 
-The scripts in this project expect the LLaMA-Factory repository to exist at:
+The project directory should contain `LLaMA-Factory` and `scripts` side by side:
 
 ```text
-./LLaMA-Factory
+.
+├── LLaMA-Factory
+└── scripts
+    ├── prepare_llamafactory_data.py
+    ├── pre_datasets.py
+    ├── run_train.sh
+    └── eval.sh
 ```
 
 ## 2. Prepare datasets
 
-Edit the configuration variables at the top of `prepare_llamafactory_data.py`:
+Edit the configuration variables at the top of `scripts/prepare_llamafactory_data.py`:
 
 ```python
 DATASET_NAME = ""
@@ -43,10 +49,10 @@ REVERSE_FILE = "data_reverse_openbookqa.json"
 Then run:
 
 ```bash
-python prepare_llamafactory_data.py
+python scripts/prepare_llamafactory_data.py
 ```
 
-This script runs `pre_datasets.py`, writes the generated dataset files to:
+This script runs `scripts/pre_datasets.py`, writes the generated dataset files to:
 
 ```text
 ./LLaMA-Factory/data
@@ -67,7 +73,7 @@ data_reverse_openbookqa.json ->  data_reverse_openbookqa
 
 ## 3. Train adapters
 
-Use `run_train.sh` to run training. Before running it, fill in the variables at the top of the file:
+Use `scripts/run_train.sh` to run training. Before running it, fill in the variables at the top of the file:
 
 ```bash
 DATASET=""
@@ -81,14 +87,14 @@ OUTPUT_DIR=""
 Then run:
 
 ```bash
-bash run_train.sh
+bash scripts/run_train.sh
 ```
 
 Use this script for the three-stage training workflow by updating `DATASET`, `ADAPTER_PATH`, and `OUTPUT_DIR` for each stage.
 
 ## 4. Evaluate adapters
 
-Use `eval.sh` for evaluation. Before running it, fill in:
+Use `scripts/eval.sh` for evaluation. Before running it, fill in:
 
 ```bash
 DATASET=""
@@ -102,7 +108,7 @@ OUTPUT_DIR=""
 Then run:
 
 ```bash
-bash eval.sh
+bash scripts/eval.sh
 ```
 
 Evaluation outputs are written to `OUTPUT_DIR`.

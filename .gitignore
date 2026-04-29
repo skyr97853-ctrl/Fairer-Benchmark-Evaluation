@@ -1,0 +1,58 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment variables / secrets
+.env
+*.key
+*.pem
+*.token
+
+# Logs
+logs/
+*.log
+wandb/
+runs/
+
+# Cache
+.cache/
+.cache_huggingface/
+.cache_torch/
+huggingface_cache/
+
+# Model checkpoints
+checkpoints/
+checkpoint-*/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+# Large outputs
+outputs/
+predictions/
+raw_outputs/
+
+# Temporary files
+tmp/
+temp/
